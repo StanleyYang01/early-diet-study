@@ -1,0 +1,2 @@
+KEGGID	Pvalue	OddsRatio	ExpCount	Count	Size	Term	Symbols
+04140	0.00117605775315722	7.20357941834452	0.813707729468599	5	35	Regulation of autophagy	Atg5;Ulk1;Atg12;Pik3r4;Pik3c3

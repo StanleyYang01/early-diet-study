@@ -1,0 +1,10 @@
+KEGGID	Pvalue	OddsRatio	ExpCount	Count	Size	Term	Symbols
+04710	1.90673728097396e-06	13.147012987013	0.939915458937198	8	22	Circadian rhythm	Arntl;Cry1;Cry2;Per2;Bhlhe40;Bhlhe41;Csnk1d;Nr1d1
+00531	0.00158973649727165	7.10993705035971	0.897192028985507	5	21	Glycosaminoglycan degradation	Idua;Sgsh;Naglu;Galns;Gns
+05210	0.00162607954785904	3.68645724713243	2.7770229468599	9	65	Colorectal cancer	Axin1;Bcl2;Casp9;Fos;Jun;Smad2;Smad3;Rac2;Tgfb3
+04010	0.00483824090631958	1.98589648110222	11.4071557971014	21	267	MAPK signaling pathway	Bdnf;Fos;Nr4a1;Jun;Max;Nfatc2;Dusp8;Dusp1;Ptprr;Rac2;Rasgrp2;Tgfb3;Mapk14;Cacng4;Dusp14;Cacna2d2;Dusp16;Rps6ka5;Dusp7;Dusp4;Pla2g4e
+05200	0.00569154590487427	1.86594594594595	13.8423913043478	24	324	Pathways in cancer	Axin1;Bcl2;Brca2;Casp9;Dvl2;Fos;Fzd1;Jun;Smad2;Smad3;Max;Met;Ptgs2;Rac2;Rxrg;Tgfa;Tgfb3;Traf3;Vegfc;Rassf1;Dapk1;Ccdc6;Rarb;Zbtb16
+04080	0.00733076569585173	1.9051914360687	11.8343900966184	21	277	Neuroactive ligand-receptor interaction	Adora2a;Adra1d;Drd1;Drd2;F2rl2;Gpr83;S1pr2;Hrh1;Hrh2;Htr1b;Htr1d;Htr5b;Htr6;Oprk1;P2ry2;Tacr1;Vipr1;Lpar2;Gabrq;Kiss1r;P2ry14
+00330	0.00762839312233877	3.39639222941721	2.3070652173913	7	54	Arginine and proline metabolism	Amd1;Glul;Nos3;P4ha1;P4ha2;Aldh18a1;P4ha3
+04920	0.00801254553257661	3.04533333333333	2.90519323671498	8	68	Adipocytokine signaling pathway	Cd36;Socs3;Acsl1;Irs4;Prkab1;Rxrg;Prkag2;Irs2
+05212	0.00951072849343354	2.94615835777126	2.99064009661836	8	70	Pancreatic cancer	Brca2;Casp9;Smad2;Smad3;Rac2;Tgfa;Tgfb3;Vegfc

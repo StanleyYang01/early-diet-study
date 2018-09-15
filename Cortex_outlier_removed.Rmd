@@ -1,5 +1,5 @@
 ---
-title: "Early diet Western diet on young mice Cortex (show code)"
+title: "To determine how western diet consumption impact the cortex of young mice"
 output:
   word_document: default
   pdf_document: default
@@ -10,11 +10,13 @@ output:
 ```{r, style, echo=FALSE, message=FALSE}
 library(BiocStyle)
 library(knitr)
-opts_chunk$set(echo=TRUE, result='markup', error=FALSE, message=FALSE, warning=FALSE, comment=NA)
-opts_chunk$set(fig.width=7, fig.height=7, out.width="4.5in", fig.align="center")
+opts_chunk$set(echo=TRUE, result='markup', error=FALSE, message=FALSE, warning=FALSE, comment=NA, cache = TRUE)
+#opts_chunk$set(fig.width=7, fig.height=7, out.width="4.5in", fig.align="center")
 #opts_chunk$set(fig.width=7, fig.height=7, out.width="3.5in", fig.align="center", fig.path="../figure/")
 # if figures are shown in the output file, do NOT include the above code
 ```
+
+
 
 ## Data
 1. RNAseq samples from cortical tissue
@@ -33,7 +35,7 @@ data.design=data.design.C
 group=group.C
 
 library(tidyverse)
-#remove outlier sample CD.2weeks.Sed.C_17989C and get rid of all running groups
+#remove outlier sample CD.2weeks.Sed.C_17989C and get rid of all running groups (pre-determined in Cortex.Rmd)
 data.raw <- data.raw %>% select(-contains("17989"),-contains("Run"))
 data.design <- data.design %>% filter(!Sample_Name %in% c("17989C"), TERM_3 == "Sed")
 group <- factor(data.design$Group)
@@ -112,7 +114,7 @@ hist(cpm.cor)
 ```
 
 
-```{r QC2  pearson correlation, fig.width=7, fig.height=6, out.width="6in"}
+```{r QC2  pearson correlation, fig.width=7, fig.height=6}
 
 library(corrplot)
 corrplot(cpm.cor, method="square", order="hclust", cl.lim = c(0.85, 1),  tl.col="purple", tl.cex = 0.75, type = "full", is.corr = FALSE)
@@ -306,7 +308,7 @@ g <- ggplot(pca_table, aes(x=pca_table[1], y=pca_table[2], color= estimate))
 
 ```
 
-```{r Explore the GLM model- heatmap, fig.width=5, fig.height=7, out.width="4.5in"} 
+```{r Explore the GLM model- heatmap, fig.width=5, fig.height=7} 
 # hirachical analysis of estimate of the coefficient
 stat_est_h<- t(scale(t(stat_est))) %>% as.data.frame() %>% as.matrix()
   
@@ -334,7 +336,7 @@ ggplot(stat_table_est.gather, aes(x=coeff_group,y=estimate, group=ENSMUSG_ID))+
 
 ```
 
-```{r Explore the GLM model- VennDiagram and Tile plot, fig.width=8, fig.height=7, out.width="6in", fig.align="center"}
+```{r Explore the GLM model- VennDiagram and Tile plot, fig.width=8, fig.height=7}
 # To identify each gene’s critical predictor. binarized the estimate and significance matrices by hard cutoffs.
 stat_pval <- stat_table_all %>% select(contains("_pval"))
 head(stat_pval)
@@ -397,7 +399,7 @@ ggplot(stat_binary.gather, aes(x = coeff_group, y = pattern, fill = value)) + ge
 1. heatmap with ordering the sample by their treatment
 2. heatmap without ordering the sample (column)
 
-```{r heat map, fig.width=10, fig.height=12, out.width="7in"}
+```{r heat map, fig.width=10, fig.height=12}
 # heatmap 
 logCPM <- log.cpm
 rownames(logCPM) <- y$genes$Symbol
@@ -433,6 +435,7 @@ head(gk.diet$MF[, c("Term", "Pvalue")])
 head(gk.diet$CC[, c("Term", "Pvalue")])
 gk.diet$KEGG[, c("Term", "Pvalue")]
 
+# output the analysis result
 #file_name<- list("./analysis/Cortex_BP.txt", "./analysis/Cortex_MF.txt", "./analysis/Cortext_CC.txt", "./analysis/Cortext_KEGG.txt")
 #walk2(gk.diet, file_name, write.table,  sep="\t", row=F, quote=F)
 #write.table(stat_table_all, "./analysis/diet_gene.txt", sep="\t", row=F, quote=F)
